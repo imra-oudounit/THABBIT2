@@ -1,0 +1,367 @@
+@import "tailwindcss";
+
+@theme {
+  /* ===== THABBIT premium identity tokens (kept names, new values) ===== */
+  --color-emerald: #1F5F47;
+  --color-teal: #1F5F47;
+  --color-gold: #C8A24B;
+  --color-bg: #FAF8F5;
+  --color-dark: #111827;
+  --color-success: #2F7D5F;
+  --color-warning: #C8A24B;
+  --color-error: #B4483C;
+
+  /* ===== Deep Emerald — brand primary (overrides Tailwind's built-in emerald-*) ===== */
+  --color-emerald-50: #EEF5F0;
+  --color-emerald-100: #DCEAE1;
+  --color-emerald-200: #B7D6C3;
+  --color-emerald-300: #8FBEA1;
+  --color-emerald-400: #5D9C7B;
+  --color-emerald-500: #3A7D5C;
+  --color-emerald-600: #1F5F47;
+  --color-emerald-700: #194B39;
+  --color-emerald-800: #143A2C;
+  --color-emerald-900: #0F2C21;
+  --color-emerald-950: #081A14;
+
+  --color-teal-50: #EEF5F0;
+  --color-teal-100: #DCEAE1;
+  --color-teal-200: #B7D6C3;
+  --color-teal-300: #8FBEA1;
+  --color-teal-400: #5D9C7B;
+  --color-teal-500: #3A7D5C;
+  --color-teal-600: #1F5F47;
+  --color-teal-700: #194B39;
+  --color-teal-800: #143A2C;
+  --color-teal-900: #0F2C21;
+
+  /* ===== Warm Gold — premium accent (overrides Tailwind's built-in amber-*) ===== */
+  --color-amber-50: #FBF5E9;
+  --color-amber-100: #F5E9CD;
+  --color-amber-200: #EAD69C;
+  --color-amber-300: #DEC078;
+  --color-amber-400: #D2A85B;
+  --color-amber-500: #C8A24B;
+  --color-amber-600: #AD873A;
+  --color-amber-700: #8A6B2E;
+  --color-amber-800: #695023;
+  --color-amber-900: #493918;
+  --color-amber-950: #2B210E;
+
+  /* ===== Warm neutrals — replaces the cold Tailwind slate-* scale ===== */
+  --color-slate-50: #FAF8F5;
+  --color-slate-100: #F3EFE8;
+  --color-slate-200: #E8E1D6;
+  --color-slate-300: #D6CCBB;
+  --color-slate-400: #B3A695;
+  --color-slate-500: #8C8172;
+  --color-slate-600: #6B6153;
+  --color-slate-700: #4F473C;
+  --color-slate-800: #332E27;
+  --color-slate-900: #111827;
+  --color-slate-950: #0B0F17;
+
+  /* Softer, less clinical reds for destructive/error states */
+  --color-rose-50: #FBEEEC;
+  --color-rose-200: #EFC3BC;
+  --color-rose-400: #CC7B6C;
+  --color-rose-500: #B4483C;
+  --color-rose-600: #9C3A30;
+  --color-rose-700: #7C2E26;
+  --color-red-50: #FBEEEC;
+  --color-red-500: #B4483C;
+  --color-red-600: #9C3A30;
+
+  --font-arabic: "IBM Plex Sans Arabic", "Tajawal", system-ui, sans-serif;
+  --font-quran: "Amiri Quran", "IBM Plex Sans Arabic", serif;
+  --font-display: "Plus Jakarta Sans", "Inter", "SF Pro Display", system-ui, sans-serif;
+
+  /* Apple-style shadow system — soft, large blur, low opacity, warm-tinted */
+  --shadow-xs: 0 1px 2px rgba(31, 24, 16, 0.04);
+  --shadow-sm: 0 1px 3px rgba(31, 24, 16, 0.06), 0 1px 2px rgba(31, 24, 16, 0.04);
+  --shadow-md: 0 4px 10px rgba(31, 24, 16, 0.05), 0 2px 4px rgba(31, 24, 16, 0.04);
+  --shadow-lg: 0 12px 20px rgba(31, 24, 16, 0.06), 0 4px 8px rgba(31, 24, 16, 0.04);
+  --shadow-xl: 0 24px 32px rgba(31, 24, 16, 0.07), 0 8px 12px rgba(31, 24, 16, 0.04);
+  --shadow-2xl: 0 30px 60px rgba(31, 24, 16, 0.09);
+
+  /* Premium card shadow — soft, elegant, emerald-tinted depth */
+  --shadow-card: 0 1px 2px rgba(31, 24, 16, 0.05), 0 1px 1px rgba(31, 24, 16, 0.03);
+  --shadow-card-hover: 0 16px 32px rgba(15, 44, 33, 0.10), 0 4px 8px rgba(15, 44, 33, 0.05);
+  --shadow-float: 0 16px 40px rgba(15, 44, 33, 0.10), 0 6px 12px rgba(15, 44, 33, 0.05);
+  --shadow-glass: 0 8px 32px rgba(31, 24, 16, 0.07);
+
+  /* Gold usage — restricted to premium moments only */
+  --gold-restrict: #C8A24B;
+  --gold-soft: #F5E9CD;
+  --gold-glow: 0 4px 16px rgba(200, 162, 75, 0.28);
+}
+
+html,
+body {
+  background: #FAF8F5;
+  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #1F1B16;
+}
+
+::selection {
+  background: rgba(31, 95, 71, 0.16);
+  color: #143A2C;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(31, 95, 71, 0.45);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Subtle warm grain so flat surfaces feel handcrafted, not flat/template */
+.thabbit-surface {
+  position: relative;
+}
+.thabbit-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 20% 20%, rgba(31, 95, 71, 0.03), transparent 60%),
+    radial-gradient(circle at 85% 75%, rgba(200, 162, 75, 0.04), transparent 55%);
+}
+
+.font-arabic {
+  font-family: "IBM Plex Sans Arabic", "Tajawal", sans-serif;
+}
+.font-quran {
+  font-family: "Amiri Quran", "IBM Plex Sans Arabic", serif;
+  line-height: 2.2;
+}
+.font-display {
+  font-family: "Inter", "SF Pro Display", system-ui, sans-serif;
+}
+
+/* Material Symbols */
+.msr {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "liga";
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+.msr.filled {
+  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+/* Soft scroll for the showcase */
+.showcase-scroll::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+.showcase-scroll::-webkit-scrollbar-thumb {
+  background: rgba(31, 95, 71, 0.25);
+  border-radius: 999px;
+}
+.showcase-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Phone scroll hidden */
+.phone-scroll::-webkit-scrollbar {
+  display: none;
+}
+.phone-scroll {
+  scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  70% { transform: scale(1.15); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(31, 95, 71, 0.32);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.floaty { animation: floaty 4s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.4s linear infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+.wave-bar { animation: wave 1s ease-in-out infinite; transform-origin: center; }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow { animation: spin-slow 20s linear infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fade-up 0.5s ease-out both; }
+
+/* ===== OWL MASCOT ANIMATIONS ===== */
+@keyframes owl-bounce {
+  0%,100% { transform: translateY(0) scale(1); }
+  25% { transform: translateY(-16px) scale(1.04); }
+  50% { transform: translateY(0) scale(0.98); }
+  75% { transform: translateY(-6px) scale(1.02); }
+}
+.owl-bounce { animation: owl-bounce 0.85s cubic-bezier(.34,1.56,.64,1) both; }
+
+@keyframes owl-shake {
+  0%,100% { transform: translateX(0); }
+  15% { transform: translateX(-7px) rotate(-3deg); }
+  30% { transform: translateX(7px) rotate(3deg); }
+  45% { transform: translateX(-5px) rotate(-2deg); }
+  60% { transform: translateX(5px) rotate(2deg); }
+  75% { transform: translateX(-2px) rotate(-1deg); }
+}
+.owl-shake { animation: owl-shake 0.6s ease both; }
+
+@keyframes owl-nod {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(4px) rotate(1deg); }
+  50% { transform: translateY(-2px) rotate(-0.5deg); }
+  75% { transform: translateY(3px) rotate(0.5deg); }
+}
+.owl-nod { animation: owl-nod 0.9s ease-in-out both; transform-origin: center 35%; }
+
+@keyframes owl-wiggle {
+  0%,100% { transform: rotate(0); }
+  20% { transform: rotate(-5deg); }
+  40% { transform: rotate(5deg); }
+  60% { transform: rotate(-3deg); }
+  80% { transform: rotate(3deg); }
+}
+.owl-wiggle { animation: owl-wiggle 0.7s ease both; }
+
+@keyframes owl-thinking {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-3px) rotate(-2.5deg); }
+  66% { transform: translateY(-3px) rotate(2.5deg); }
+}
+.owl-thinking { animation: owl-thinking 1.8s ease-in-out infinite; }
+
+@keyframes owl-celebrate {
+  0% { transform: scale(0.9) translateY(6px); }
+  40% { transform: scale(1.12) translateY(-14px) rotate(-2deg); }
+  70% { transform: scale(1.04) translateY(-4px) rotate(2deg); }
+  100% { transform: scale(1) translateY(0); }
+}
+.owl-celebrate { animation: owl-celebrate 0.9s cubic-bezier(.34,1.5,.64,1) both; }
+
+@keyframes owl-blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.08); }
+}
+.owl-eye { animation: owl-blink 3.7s ease-in-out infinite; transform-origin: center; }
+
+@keyframes owl-wing-flap {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(-14deg); }
+}
+.owl-wing-left { transform-origin: 68px 108px; animation: owl-wing-flap 0.28s ease-in-out 3; }
+.owl-wing-right { transform-origin: 132px 108px; animation: owl-wing-flap 0.28s ease-in-out 3 reverse; }
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-30px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(120px) rotate(420deg); opacity: 0; }
+}
+.confetti { animation: confetti-fall 1.3s ease-in forwards; }
+
+@keyframes remind-pulse {
+  0%,100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.035); filter: brightness(1.08); }
+}
+.owl-remind { animation: remind-pulse 1.25s ease-in-out infinite; }
+
+@keyframes wrong-wobble {
+  0% { transform: translateX(0) rotate(0); }
+  18% { transform: translateX(-9px) rotate(-4deg); }
+  36% { transform: translateX(9px) rotate(4deg); }
+  54% { transform: translateX(-6px) rotate(-2deg); }
+  72% { transform: translateX(6px) rotate(2deg); }
+  100% { transform: translateX(0) rotate(0); }
+}
+.owl-wrong { animation: wrong-wobble 0.62s ease both; }
+
+@keyframes listen-glow {
+  0%,100% { filter: drop-shadow(0 0 0px rgba(31,95,71,0)); }
+  50% { filter: drop-shadow(0 0 16px rgba(31,95,71,0.6)); }
+}
+.owl-listen { animation: listen-glow 1.1s ease-in-out infinite; }
+
+/* Phone frame look */
+.phone-frame {
+  background: #111827;
+  border-radius: 56px;
+  padding: 12px;
+  box-shadow:
+    0 40px 80px -20px rgba(17, 24, 39, 0.4),
+    0 20px 40px -20px rgba(31, 95, 71, 0.25),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.04);
+}
+.phone-screen {
+  border-radius: 44px;
+  overflow: hidden;
+  position: relative;
+  background: #FAF8F5;
+}
+
+/* Glass */
+.glass {
+  background: rgba(250, 248, 245, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+}
+.glass-dark {
+  background: rgba(17, 24, 39, 0.78);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+}
+
+/* ===== Signature brand surfaces ===== */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #26694F 0%, #1F5F47 45%, #143A2C 100%);
+}
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #DEC078 0%, #C8A24B 55%, #AD873A 100%);
+}
+.text-gold-gradient {
+  background: linear-gradient(135deg, #DEC078 0%, #C8A24B 55%, #AD873A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bg-night-gradient {
+  background: linear-gradient(180deg, #111827 0%, #0F2C21 100%);
+}
